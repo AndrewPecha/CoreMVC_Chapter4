@@ -18,14 +18,10 @@
             <li>@item</li>
         }
         <li>@ViewContext.RouteData.Values["action"].ToString()</li>
-    </ul>
-    @if (ViewContext.RouteData.Values["action"].ToString().Equals("ExtensionMethods"))
-    {
-        <a class="btn btn-primary" asp-action="Index">Previous Screen</a>
-    }
-    else
-    {
-        <a class="btn btn-primary" asp-action="ExtensionMethods">Next Screen</a>
-    }
+    </ul>    
+        <a class="btn btn-primary" asp-action="Index">Index</a>    
+        <a class="btn btn-primary" asp-action="ExtensionMethods">Extension Method</a>
+        <a class="btn btn-danger" asp-action="AsyncMethods">Async Method</a>    
+
 </body>
 </html>

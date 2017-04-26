@@ -39,5 +39,12 @@ namespace LanguageFeatures.Controllers
             
             return View("Index", new string[] { $"Total: {cartTotal:C2}" });
         }
+
+        public async Task<ViewResult> AsyncMethods(string site = "http://www.mainsl.com")
+        {
+            long? length = await MyAsyncMethods.GetPageLength(site);
+
+            return View("Index", new string[] { $"Length: {length}" });
+        }
     }
 }
