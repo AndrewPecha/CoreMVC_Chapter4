@@ -18,5 +18,22 @@ namespace LanguageFeatures.Models
 
             return total;
         }
+
+        /// <summary>
+        /// returns products with price greater than minPrice
+        /// </summary>
+        /// <param name="products"></param>
+        /// <param name="minPrice"></param>
+        /// <returns></returns>
+        public static IEnumerable<Product> FilterByPrice(this IEnumerable<Product> products, decimal minPrice)
+        {
+            foreach (Product item in products)
+            {
+                if ((item?.Price ?? 0) >= minPrice)
+                {
+                    yield return item;
+                }
+            }
+        }
     }
 }
