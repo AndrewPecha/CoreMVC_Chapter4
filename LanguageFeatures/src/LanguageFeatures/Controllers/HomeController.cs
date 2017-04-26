@@ -28,5 +28,16 @@ namespace LanguageFeatures.Controllers
 
             return View(results);
         }
+
+        public ViewResult ExtensionMethods()
+        {
+            ShoppingCart cart = new ShoppingCart
+            {
+                Products = Product.GetProducts()
+            };
+            decimal cartTotal = cart.TotalPrices();
+            
+            return View("Index", new string[] { $"Total: {cartTotal:C2}" });
+        }
     }
 }

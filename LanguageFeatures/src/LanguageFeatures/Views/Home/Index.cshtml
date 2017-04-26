@@ -9,6 +9,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Language Features</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 </head>
 <body>
     <ul>
@@ -16,7 +17,15 @@
         {
             <li>@item</li>
         }
+        <li>@ViewContext.RouteData.Values["action"].ToString()</li>
     </ul>
-    <a class="btn btn-primary" asp-action=""
+    @if (ViewContext.RouteData.Values["action"].ToString().Equals("ExtensionMethods"))
+    {
+        <a class="btn btn-primary" asp-action="Index">Previous Screen</a>
+    }
+    else
+    {
+        <a class="btn btn-primary" asp-action="ExtensionMethods">Next Screen</a>
+    }
 </body>
 </html>
